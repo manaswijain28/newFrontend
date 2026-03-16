@@ -22,6 +22,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // api's
+app.get("/", (req, res) => {
+    res.send("Backend is running");
+});
+
 app.use("/api/v1/user", userRoute);
 
 const PORT = process.env.PORT;
