@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const response = await axios.post('http://localhost:8000/api/v1/user/login', { email, password }, {
+            const response = await axios.post('http://13.233.82.8:8000/api/v1/user/login', { email, password }, {
                 withCredentials: true
             });
             if (response.data.success) {
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
     const signup = async (fullname, email, password) => {
         try {
-            const response = await axios.post('http://localhost:8000/api/v1/user/register', { fullname, email, password });
+            const response = await axios.post('http://13.233.82.8:8000/api/v1/user/register', { fullname, email, password });
             if (response.data.success) {
                 return { success: true, message: response.data.message };
             }
