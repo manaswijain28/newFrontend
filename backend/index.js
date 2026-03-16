@@ -15,11 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'http://13.233.82.8:5173'],
     credentials: true
 }
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // api's
 app.get("/", (req, res) => {
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/user", userRoute);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 
 app.listen(PORT, () => {
